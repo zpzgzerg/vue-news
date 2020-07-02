@@ -32,7 +32,8 @@
 
 <script>
   export default {
-    created() {
+    /*created() {
+      bus.$emit('start:spinner');
       if (this.$route.name === 'news') {
         this.$store.dispatch('FETCH_NEWS');
       } else if (this.$route.name === 'ask') {
@@ -40,10 +41,12 @@
       } else if (this.$route.name === 'jobs') {
         this.$store.dispatch('FETCH_JOBS');
       }
-    },
+      bus.$emit('end:spinner');
+    },*/
     computed: {
       listItems() {
-        let list = [];
+        return this.$store.state.list;
+        /*let list = [];
         if (this.$route.name === 'news') {
           list = this.$store.state.news;
         } else if (this.$route.name === 'ask') {
@@ -51,7 +54,7 @@
         } else if (this.$route.name === 'jobs') {
           list = this.$store.state.jobs;
         }
-        return list;
+        return list;*/
       }
     }
   }
